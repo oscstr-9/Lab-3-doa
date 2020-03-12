@@ -8,7 +8,7 @@ struct retStruct{
 	int largest;
 	int smallest;
 	int denominator; // nämnare
-	int numinator; // täljare
+	int numerator; // täljare
 };
 
 retStruct mergeSort(int* list, int size) {
@@ -23,27 +23,27 @@ retStruct mergeSort(int* list, int size) {
 
 		// set correct index for right side since it starts from the middle
 		rightSolution.denominator += size / 2;
-		rightSolution.numinator += size / 2;
+		rightSolution.numerator += size / 2;
 		rightSolution.largest += size / 2;
 		rightSolution.smallest += size / 2;
 
 		// calculate where best solution is
-		double leftQuota = list[leftSolution.numinator] / (double)list[leftSolution.denominator];
-		double rightQuota = list[rightSolution.numinator] / (double)list[rightSolution.denominator];
+		double leftQuota = list[leftSolution.numerator] / (double)list[leftSolution.denominator];
+		double rightQuota = list[rightSolution.numerator] / (double)list[rightSolution.denominator];
 		double midQuota =  list[rightSolution.largest] / (double)list[leftSolution.smallest];
 
-		// set corret denominators and numinators
+		// set corret denominators and numerators
 		if (leftQuota < rightQuota && rightQuota > midQuota) {
 			ret.denominator = rightSolution.denominator;
-			ret.numinator = rightSolution.numinator;
+			ret.numerator = rightSolution.numerator;
 		}
 		else if (leftQuota < midQuota && midQuota> rightQuota) {
 			ret.denominator = leftSolution.smallest;
-			ret.numinator = rightSolution.largest;
+			ret.numerator = rightSolution.largest;
 		}
 		else {
 			ret.denominator = leftSolution.denominator;
-			ret.numinator = leftSolution.numinator;
+			ret.numerator = leftSolution.numerator;
 		}
 		ret.largest = (list[leftSolution.largest] < list[rightSolution.largest]) ? rightSolution.largest : leftSolution.largest;
 		ret.smallest = (list[leftSolution.smallest] > list[rightSolution.smallest]) ? rightSolution.smallest : leftSolution.smallest;
@@ -53,7 +53,7 @@ retStruct mergeSort(int* list, int size) {
 		ret.largest = (list[1] > list[0]) ? 1 : 0;
 		ret.smallest = (list[0] < list[1]) ? 0 : 1;
 		ret.denominator = 0;
-		ret.numinator = 1;
+		ret.numerator = 1;
 		return ret;
 	}
 	else { // if list is 3 in size
@@ -63,17 +63,17 @@ retStruct mergeSort(int* list, int size) {
 		ret.smallest = (list[0] < list[1]) ? 0 : 1; // find smallest number
 		ret.smallest = (list[ret.smallest] < list[2]) ? ret.smallest : 2;
 
-		if (list[1] > list[2]) { // find denominator and numinator
+		if (list[1] > list[2]) { // find denominator and numerator
 			ret.denominator = 0;
-			ret.numinator = 1;
+			ret.numerator = 1;
 		}
 		else if (list[0] < list[1]) {
 			ret.denominator = 0;
-			ret.numinator = 2;
+			ret.numerator = 2;
 		}
 		else{
 			ret.denominator = 1;
-			ret.numinator = 2;
+			ret.numerator = 2;
 		}
 		return ret;
 	}
@@ -82,7 +82,9 @@ retStruct mergeSort(int* list, int size) {
 void main() {
 	srand(time(0));
 	int sizeOfList;
+	cout << "Enter any positive number: ";
 	cin >> sizeOfList;
+	cout << endl;
 
 
 	int* list = new int[sizeOfList]; // fill array with random numbers
@@ -93,5 +95,5 @@ void main() {
 
 	retStruct ret = mergeSort(list, sizeOfList);
 
-	cout << endl << "Numinator index: " << ret.numinator << endl << "Denominator index: " << ret.denominator << endl << "Largest number: " << list[ret.largest] << endl << "Smallest number: " << list[ret.smallest];
+	cout << endl << "Numerator index: " << ret.numerator << endl << "Denominator index: " << ret.denominator << endl << "Largest number: " << list[ret.largest] << endl << "Smallest number: " << list[ret.smallest];
 }

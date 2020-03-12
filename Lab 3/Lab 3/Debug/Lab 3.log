@@ -1,6 +1,6 @@
 ﻿  Main.cpp
 c:\users\oscstr-9\onedrive - ltu.se\c++\doa\lab 3\lab 3\main.cpp(18): warning C4101: 'rightSolution': unreferenced local variable
 c:\users\oscstr-9\onedrive - ltu.se\c++\doa\lab 3\lab 3\main.cpp(17): warning C4101: 'leftSolution': unreferenced local variable
-c:\users\oscstr-9\onedrive - ltu.se\c++\doa\lab 3\lab 3\main.cpp(79): warning C4326: return type of 'main' should be 'int' instead of 'void'
-c:\users\oscstr-9\onedrive - ltu.se\c++\doa\lab 3\lab 3\main.cpp(80): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\oscstr-9\onedrive - ltu.se\c++\doa\lab 3\lab 3\main.cpp(82): warning C4326: return type of 'main' should be 'int' instead of 'void'
+c:\users\oscstr-9\onedrive - ltu.se\c++\doa\lab 3\lab 3\main.cpp(83): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Lab 3.vcxproj -> C:\Users\oscstr-9\OneDrive - ltu.se\C++\Doa\Lab 3\Debug\Lab 3.exe
